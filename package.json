@@ -1,23 +1,17 @@
 {
-	"name": "heating-landing",
-	"version": "0.1.0",
-	"private": true,
+	"name": "heating-telegram-bot",
+	"version": "1.0.0",
+	"description": "Telegram bot for heating service",
+	"main": "telegram-bot.js",
 	"scripts": {
-		"dev": "next dev",
-		"build": "next build",
-		"start": "next start",
-		"lint": "next lint"
+		"start": "node telegram-bot.js"
 	},
 	"dependencies": {
-		"next": "14.0.0",
-		"react": "^18.0.0",
-		"react-dom": "^18.0.0",
-		"resend": "^3.2.0"
+		"node-telegram-bot-api": "^0.64.0",
+		"dotenv": "^16.3.1",
+		"express": "^4.18.2"
 	},
-	"devDependencies": {
-		"@types/node": "^20.0.0",
-		"@types/react": "^18.0.0",
-		"@types/react-dom": "^18.0.0",
-		"typescript": "^5.0.0"
+	"engines": {
+		"node": ">=18.0.0"
 	}
 }
