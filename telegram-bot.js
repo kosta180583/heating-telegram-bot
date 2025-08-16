@@ -1,8 +1,29 @@
 const TelegramBot = require('node-telegram-bot-api')
 const dotenv = require('dotenv')
+const express = require('express')
 
 // Загрузка переменных окружения
 dotenv.config({ path: '.env.local' })
+
+const app = express()
+const PORT = process.env.PORT || 3000
+
+// Health check endpoint для Render
+app.get('/', (req, res) => {
+	res.json({
+		status: 'Telegram бот работает',
+		timestamp: new Date().toISOString(),
+	})
+})
+
+app.get('/health', (req, res) => {
+	res.json({ status: 'OK', bot: 'running' })
+})
+
+// Запускаем HTTP сервер
+app.listen(PORT, () => {
+	console.log(`HTTP сервер запущен на порту ${PORT}`)
+})
 
 // Замените на ваш реальный токен из .env.local
 const token = process.env.TELEGRAM_BOT_TOKEN || 'YOUR_BOT_TOKEN'
